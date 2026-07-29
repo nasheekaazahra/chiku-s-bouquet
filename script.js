@@ -41,3 +41,23 @@ document.querySelectorAll('.add-btn').forEach(btn => {
     setTimeout(() => { btn.textContent = original; }, 1400);
   });
 });
+
+// ===========================
+// Scroll Reveal Animation
+// ===========================
+
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{
+    threshold:0.15
+});
+
+reveals.forEach(el=>{
+    observer.observe(el);
+});
